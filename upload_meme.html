@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Meme</title>
+    <style>
+       body {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif; 
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    overflow: hidden;
+    border: 2px dashed #4CAF50; 
+    animation: popIn 0.5s ease-out;
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+h1 {
+    color: #4CAF50;
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, #4CAF50, #FF5722);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow 1.5s infinite;
+}
+
+@keyframes rainbow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+label {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 8px;
+    display: block;
+    text-align: left;
+    font: bold;
+}
+textarea {
+    width: calc(100% - 20px); 
+    padding: 15px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    margin-left: 10px; 
+    margin-right: 10px; 
+    resize: vertical;
+    background: #fdfdfd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+
+textarea:focus {
+    border-color: #FF5722;
+    outline: none;
+    box-shadow: 0 0 15px rgba(255, 87, 34, 0.5);
+}
+
+button {
+    background: linear-gradient(90deg, #FF5722, #FFC107);
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 18px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s, transform 0.2s;
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(255, 87, 34, 0.3);
+}
+
+button:hover {
+    background: linear-gradient(90deg, #FFC107, #FF5722);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 87, 34, 0.5);
+}
+
+form {
+    margin-bottom: 15px;
+}
+
+a {
+    color: #FF5722;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #4CAF50;
+    text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Upload Meme</h1>
+        <form action="UploadMemeServlet" method="POST" enctype="multipart/form-data">
+            <label for="memeTitle">Post your meme here!!</label>
+           
+            <textarea id="memeTitle" name="memeTitle" rows="16" required></textarea><br>
+            
+            <button type="submit">😎 Upload Meme 😎</button>
+            
+        </form>
+        <form action="UploadMemeServlet" method="POST" enctype="multipart/form-data">
+             <button type="submit">🤪 View Memes 🤪 </button>
+        </form>
+        <form action="chat.html" method="POST">
+            <button type="submit">😂 Crack Jokes with MemeZap 😂</button>
+            
+        </form>
+    </div>
+</body>
+</html>

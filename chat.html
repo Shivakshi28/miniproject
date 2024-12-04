@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MemeZap Chat</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="chat-container">
+        <h1>MemeZap ChatBot</h1>
+        <div id="chat-box"></div>
+        <form id="chat-form">
+            <input type="text" id="message" placeholder="Type your word..." required>
+            <button type="submit">Generate Joke</button>
+        </form>
+    </div>
+
+    <script>
+        const chatBox = document.getElementById("chat-box");
+        const chatForm = document.getElementById("chat-form");
+
+        chatForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const userMessage = document.getElementById("message").value;
+            appendMessage("You", userMessage);
+
+            // Show typing indicator while waiting for the bot response
+            appendMessage("MemeZap", "Generating joke...");
+
+            const response = await fetch("chat", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: `message=${encodeURIComponent(userMessage)}`,
+            });
+
+            const botResponse = await response.text();
+            updateBotResponse(botResponse);
+
+            chatForm.reset();
+        });
+
+        function appendMessage(sender, message) {
+            const messageDiv = document.createElement("div");
+            messageDiv.className = sender.toLowerCase();
+            messageDiv.textContent = `${sender}: ${message}`;
+            chatBox.appendChild(messageDiv);
+        }
+
+        function updateBotResponse(response) {
+            // Replace the "Generating joke..." message with the bot's response
+            const lastMessage = chatBox.lastElementChild;
+            if (lastMessage && lastMessage.classList.contains("memezap")) {
+                lastMessage.textContent = `MemeZap: ${response}`;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+   version="6.0">
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    
+    <!-- RegisterServlet -->
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>RegisterServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/RegisterServlet</url-pattern>
+    </servlet-mapping>
+    
+    <!-- LoginServlet -->
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- UploadMemeServlet -->
+    <servlet>
+        <servlet-name>UploadMemeServlet</servlet-name>
+        <servlet-class>UploadMemeServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UploadMemeServlet</servlet-name>
+        <url-pattern>/UploadMemeServlet</url-pattern>  <!-- Form action should match this URL pattern -->
+    </servlet-mapping>
+    
+     <servlet>
+        <servlet-name>UploadMemeServlet</servlet-name>
+        <servlet-class>UploadMemeServlet</servlet-class>
+        <multipart-config>
+            <max-file-size>10485760</max-file-size> <!-- 10 MB -->
+            <max-request-size>20971520</max-request-size> <!-- 20 MB -->
+            <file-size-threshold>0</file-size-threshold> <!-- Store file in memory before uploading -->
+        </multipart-config>
+    </servlet>
+</web-app>
+
+
+   

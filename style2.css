@@ -1,0 +1,239 @@
+/* General body and layout styles */
+body {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif; /* Fun font for a playful vibe */
+    background-color: #fffbeb; /* Light yellow for a cheerful tone */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+
+/* Chat container */
+.chat-container {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    max-width: 450px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    border: 3px dashed #ffc107; /* Dashed border for a playful look */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative emoji elements */
+.chat-container:before {
+    content: "😄";
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    font-size: 60px;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+.chat-container:after {
+    content: "😂";
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    font-size: 60px;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+/* Heading Style */
+h1 {
+    text-align: center;
+    color: #007bff;
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Chat box */
+#chat-box {
+    height: 350px;
+    overflow-y: auto;
+    border: 2px solid #ffc107; /* Bright border */
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #fff8e1; /* Light yellow */
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* Scrollbar styles */
+#chat-box::-webkit-scrollbar {
+    width: 10px;
+}
+
+#chat-box::-webkit-scrollbar-thumb {
+    background-color: #ff9800; /* Bright scrollbar */
+    border-radius: 5px;
+}
+
+/* Message styles */
+#chat-box div {
+    padding: 10px;
+    margin: 6px 0;
+    border-radius: 8px;
+    max-width: 75%;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+    font-size: 14px;
+    position: relative;
+}
+
+/* User message style */
+.you {
+    background-color: #d1e7fd;
+    align-self: flex-start;
+    text-align: left;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.you:before {
+    content: "You";
+    font-size: 12px;
+    color: #555;
+    position: absolute;
+    top: -16px;
+    left: 5px;
+}
+
+/* Bot message style */
+.memezap {
+    background-color: #e8ffe8;
+    align-self: flex-end;
+    text-align: left;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    
+    margin-top: 20px; /* Added top margin for distance */
+}
+
+
+.memezap:before {
+    content: "MemeZap";
+    font-size: 12px;
+    color: #555;
+    position: absolute;
+    top: -16px;
+    left: 5px;
+    
+}
+
+/* Input form and button styles */
+#chat-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 2px solid #ddd;
+    padding-top: 10px;
+}
+
+#message {
+    width: 75%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    margin-right: 10px;
+    outline: none;
+    box-sizing: border-box;
+    background-color: #fff8e1; /* Match chat background */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#message:focus {
+    border-color: #ff9800;
+    box-shadow: 0 0 5px rgba(255, 152, 0, 0.5);
+}
+
+button {
+    padding: 12px 18px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+button:active {
+    background-color: #003f7f;
+    transform: scale(0.98);
+}
+
+.typing-indicator {
+    font-style: italic;
+    color: #999;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .chat-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    #message {
+        width: 70%;
+    }
+
+    button {
+        width: 25%;
+    }
+}
+#chat-box div {
+    padding: 10px;
+    margin: 10px 0;  
+    border-radius: 8px;
+    max-width: 75%;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+    font-size: 14px;
+    position: relative;
+}
+
+
+.you {
+    background-color: #d1e7fd;
+    align-self: flex-start;
+    text-align: left;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Added bottom margin */
+}
+
+.you:before {
+    content: "You";
+    font-size: 12px;
+    color: #555;
+    position: absolute;
+    top: -16px;
+    left: 5px;
+}
+
